@@ -328,6 +328,18 @@ document.getElementsByTagName('summary')[0].onkeydown = function(e) {
   }
 }
 </script>
+<script>
+$(window).scroll(function(e){ 
+  var $el = $('.sticky-field'); 
+  var isPositionFixed = ($el.css('position') == 'fixed');
+  if ($(this).scrollTop() > 4000 && !isPositionFixed){ 
+    $el.css({'position': 'fixed', 'top': '0px'}); 
+  }
+  if ($(this).scrollTop() < 4000 && isPositionFixed){
+    $el.css({'position': 'static', 'top': '0px'}); 
+  } 
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
