@@ -329,16 +329,28 @@ document.getElementsByTagName('summary')[0].onkeydown = function(e) {
 }
 </script>
 <script>
-$(window).scroll(function(e){ 
-  var $el = $('.sticky-field'); 
-  var isPositionFixed = ($el.css('position') == 'fixed');
-  if ($(this).scrollTop() > 4000 && !isPositionFixed){ 
-    $el.css({'position': 'fixed', 'top': '0px'}); 
-  }
-  if ($(this).scrollTop() < 4000 && isPositionFixed){
-    $el.css({'position': 'static', 'top': '0px'}); 
-  } 
-});
+
+// position: sticky does not work 2023-09-17 
+// solution here: javascript that updates the css of sticky-field class once users scroll by from position: static to position: fixed and top: 0 
+
+
+// Get the element with the class "sticky-field"
+const stickyField = document.querySelector('.sticky-field');
+
+// Get the offset from the top of the page where you want to make it sticky
+const offset = stickyField.offsetTop;
+
+// Function to update the position based on scroll
+function updateStickyPosition() {
+    if (window.pageYOffset >= offset) {
+        stickyField.classList.add('sticky-fixed');
+    } else {
+        stickyField.classList.remove('sticky-fixed');
+    }
+}
+
+// Attach a scroll event listener to call the update function
+window.addEventListener('scroll', updateStickyPosition);
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
