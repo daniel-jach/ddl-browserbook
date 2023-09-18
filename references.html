@@ -295,18 +295,23 @@ underlineButton.addEventListener("click", function () {
 </script>
 
 <script>
-function printDiv()
-{
-    var divsToPrint = document.getElementsByClassName('print');
-    var printContents = "";
-    for (n = 0; n < divsToPrint.length; n++) 
-    {
-       printContents += divsToPrint[n].innerHTML;
-    }
-    var originalContents = document.body.innerHTML;
-    document.body.innerHTML = printContents;
-    window.print();
-    document.body.innerHTML = originalContents;
+function printDiv() {
+  // Expand all <details> elements before printing
+  var detailsElements = document.querySelectorAll('details');
+  detailsElements.forEach(function (details) {
+    details.setAttribute('open', true);
+  });
+
+  var divsToPrint = document.getElementsByClassName('print');
+  var printContents = "";
+  for (var n = 0; n < divsToPrint.length; n++) {
+    printContents += divsToPrint[n].innerHTML;
+  }
+  
+  var originalContents = document.body.innerHTML;
+  document.body.innerHTML = printContents;
+  window.print();
+  document.body.innerHTML = originalContents;
 }
 </script>
 <script>
