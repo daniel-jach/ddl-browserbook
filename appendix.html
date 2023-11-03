@@ -205,10 +205,10 @@ div.csl-indent {
   <h6 style="margin-top: 25px;">Seite</h6>
   
   <div class="btn-group-vertical">
+    <button class="btn btn-secondary btn-sm" id="returnToPreviousPositionButton">Zurückspringen</button>
     <button class="btn btn-secondary btn-sm" id="save-all">Eingabe speichern</button>
     <button class="btn btn-secondary btn-sm" onclick="printDiv()">Eingabe drucken</button>
     <button class="btn btn-secondary btn-sm" onclick="localStorage.clear() + location.reload()">Wiederherstellen</button>
-
   </div>
 </div>
 
@@ -401,6 +401,69 @@ function updateStickyPosition() {
 
 // Attach a scroll event listener to call the update function
 window.addEventListener('scroll', updateStickyPosition);
+</script>
+<script>
+  let isButtonVisible = false; // Variable to track button visibility
+
+  // Function to store the scroll position and URL
+  function storeScrollPositionAndURL() {
+    const currentPosition = window.scrollY;
+    const currentURL = window.location.href;
+    localStorage.setItem(currentURL, currentPosition);
+    isButtonVisible = true; // Show the button after clicking a link
+    showReturnButton();
+  }
+
+  // Function to return to the previous position on the previous webpage
+  function returnToPreviousPosition() {
+    const currentURL = window.location.href;
+    const previousPosition = localStorage.getItem(currentURL);
+
+    if (previousPosition !== null) {
+      window.scrollTo(0, parseInt(previousPosition));
+      isButtonVisible = false; // Hide the button after returning to the previous position
+      hideReturnButton();
+    }
+  }
+
+  // Function to add the onclick attribute to in-page anchor links
+  function addClickEventToInPageAnchorLinks() {
+    const inPageAnchorLinks = document.querySelectorAll('a[href^="#"]');
+    inPageAnchorLinks.forEach(link => {
+      link.addEventListener('click', storeScrollPositionAndURL);
+    });
+
+    // Initially hide the "Return to Previous Position" button
+    hideReturnButton();
+  }
+
+  // Function to show the "Return to Previous Position" button
+  function showReturnButton() {
+    const returnToPreviousPositionButton = document.getElementById('returnToPreviousPositionButton');
+    if (returnToPreviousPositionButton && isButtonVisible) {
+      returnToPreviousPositionButton.style.display = 'block';
+    }
+  }
+
+  // Function to hide the "Return to Previous Position" button
+  function hideReturnButton() {
+    const returnToPreviousPositionButton = document.getElementById('returnToPreviousPositionButton');
+    if (returnToPreviousPositionButton) {
+      returnToPreviousPositionButton.style.display = 'none';
+    }
+  }
+
+  // Call the function to add the onclick attribute to in-page anchor links when the page loads
+  document.addEventListener('DOMContentLoaded', addClickEventToInPageAnchorLinks);
+
+  // Call the function to return to the previous position when the "Return to Previous Position" button is clicked
+  document.addEventListener('DOMContentLoaded', function() {
+    const returnToPreviousPositionButton = document.getElementById('returnToPreviousPositionButton');
+
+    if (returnToPreviousPositionButton) {
+      returnToPreviousPositionButton.addEventListener('click', returnToPreviousPosition);
+    }
+  });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
