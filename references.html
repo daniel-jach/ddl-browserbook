@@ -168,6 +168,7 @@ div.csl-indent {
     <button href="#" id="green" class="btn btn-secondary btn-sm" style="background-color: #28B62C;">grün</button>
     <button href="#" id="red" class="btn btn-secondary btn-sm" style="background-color: #FF4136;">rot</button>
     <button href="#" id="orange" class="btn btn-secondary btn-sm" style="background-color: #FF851B;">orange</button>
+    <button href="#" id="yellow" class="btn btn-secondary btn-sm" style="background-color: yellow;">gelb</button>
     <button href="#" id="lightblue" class="btn btn-secondary btn-sm" style="background-color: #75CAEB;">hellblau</button>
     <button href="#" id="black" class="btn btn-secondary btn-sm btn-dark">schwarz</button>
   </div>
@@ -322,7 +323,8 @@ var
     red = document.getElementById("red"),
     orange = document.getElementById("orange"),
     lightblue = document.getElementById("lightblue"),
-    black = document.getElementById("black")
+    black = document.getElementById("black"),
+    yellow = document.getElementById("yellow")
 ;
 
 blue.addEventListener("click", function() { setColor("#158CBA"); });
@@ -331,10 +333,16 @@ red.addEventListener("click", function() { setColor("#FF4136"); });
 orange.addEventListener("click", function() { setColor("#FF851B"); });
 lightblue.addEventListener("click", function() { setColor("#75CAEB"); });
 black.addEventListener("click", function() { setColor("#222222"); });
+yellow.addEventListener("click", function() { setHighlightColor("yellow"); });
 
 function setColor(color) {
     document.execCommand('styleWithCSS', false, true);
     document.execCommand('foreColor', false, color);
+}
+
+function setHighlightColor(color) {
+    document.execCommand('styleWithCSS', false, true);
+    document.execCommand('hiliteColor', false, color);
 }
 </script>
 <script>

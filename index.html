@@ -156,6 +156,7 @@ ul.task-list li input[type="checkbox"] {
     <button href="#" id="green" class="btn btn-secondary btn-sm" style="background-color: #28B62C;">grün</button>
     <button href="#" id="red" class="btn btn-secondary btn-sm" style="background-color: #FF4136;">rot</button>
     <button href="#" id="orange" class="btn btn-secondary btn-sm" style="background-color: #FF851B;">orange</button>
+    <button href="#" id="yellow" class="btn btn-secondary btn-sm" style="background-color: yellow;">gelb</button>
     <button href="#" id="lightblue" class="btn btn-secondary btn-sm" style="background-color: #75CAEB;">hellblau</button>
     <button href="#" id="black" class="btn btn-secondary btn-sm btn-dark">schwarz</button>
   </div>
@@ -214,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Ihre Eingabe</strong></p>
 </div>
 <div id="vorwort-testsite" class="user-content example-text" contenteditable="true">
-
+<p>Was Sie hier lesen, ist ein Beispieltext. Sie können ihn bearbeiten, umschreiben, erweitern oder entfernen und Ihre Änderungen speichern.</p>
 </div>
 </div>
 <p>Sie können Ihre Eingabe speichern, indem Sie auf <em>Eingabe speichern</em> klicken. Die Daten werden auf Ihrem Computer im Cache Ihres Browsers gespeichert. Mit <em>Eingabe drucken</em> können Sie eine PDF-Datei der aktuellen Seite mit Ihren Eingaben erstellen. Die Schaltfläche <em>Wiederherstellen</em> löscht alle Ihre Eingaben vollständig aus Ihrem Cache und setzt das gesamte Browserbuch in den Ausgangszustand zurück.</p>
@@ -296,7 +297,8 @@ var
     red = document.getElementById("red"),
     orange = document.getElementById("orange"),
     lightblue = document.getElementById("lightblue"),
-    black = document.getElementById("black")
+    black = document.getElementById("black"),
+    yellow = document.getElementById("yellow")
 ;
 
 blue.addEventListener("click", function() { setColor("#158CBA"); });
@@ -305,10 +307,16 @@ red.addEventListener("click", function() { setColor("#FF4136"); });
 orange.addEventListener("click", function() { setColor("#FF851B"); });
 lightblue.addEventListener("click", function() { setColor("#75CAEB"); });
 black.addEventListener("click", function() { setColor("#222222"); });
+yellow.addEventListener("click", function() { setHighlightColor("yellow"); });
 
 function setColor(color) {
     document.execCommand('styleWithCSS', false, true);
     document.execCommand('foreColor', false, color);
+}
+
+function setHighlightColor(color) {
+    document.execCommand('styleWithCSS', false, true);
+    document.execCommand('hiliteColor', false, color);
 }
 </script>
 <script>
