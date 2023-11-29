@@ -165,18 +165,22 @@ div.csl-indent {
     <div class="quarto-margin-footer"><div class="margin-footer-item">
 <div class="side-toolbar">
   
-  <h6>Text</h6>
+  <h6>Text hervorheben</h6>
   
   <div class="btn-group-vertical">
-    <button id="boldButton" class="btn btn-secondary btn-sm"><b>fett</b></button>
-    <button id="italicButton" class="btn btn-secondary btn-sm"><i>kursiv</i></button>
-    <button id="underlineButton" class="btn btn-secondary btn-sm"><underline>unterstrichen</underline></button>
-    
+    <button id="boldButton" class="btn btn-secondary btn-sm" role="button" data-toggle="tooltip" title="Alt+F"><b>fett</b></button>
+    <button id="italicButton" class="btn btn-secondary btn-sm" role="button" data-toggle="tooltip" title="Alt+K"><i>kursiv</i></button>
+    <button id="underlineButton" class="btn btn-secondary btn-sm" role="button" data-toggle="tooltip" title="Alt+U"><underline>unterstrichen</underline></button>
+    <button href="#" id="yellow" class="btn btn-secondary btn-sm" style="background-color: yellow;" role="button" data-toggle="tooltip" title="Alt+H">hervorheben</button>
+    <button href="#" id="removeFormat" class="btn btn-secondary btn-sm" role="button" data-toggle="tooltip" title="Alt+N">normal</button>
+  </div>
+  
+  <h6 style="margin-top: 25px;">Text einfärben</h6>
+  <div class="btn-group-vertical">
     <button href="#" id="blue" class="btn btn-secondary btn-sm" style="background-color: #158CBA;">blau</button>
     <button href="#" id="green" class="btn btn-secondary btn-sm" style="background-color: #28B62C;">grün</button>
     <button href="#" id="red" class="btn btn-secondary btn-sm" style="background-color: #FF4136;">rot</button>
     <button href="#" id="orange" class="btn btn-secondary btn-sm" style="background-color: #FF851B;">orange</button>
-    <button href="#" id="yellow" class="btn btn-secondary btn-sm" style="background-color: yellow;">gelb</button>
     <button href="#" id="lightblue" class="btn btn-secondary btn-sm" style="background-color: #75CAEB;">hellblau</button>
     <button href="#" id="black" class="btn btn-secondary btn-sm btn-dark">schwarz</button>
   </div>
@@ -314,6 +318,40 @@ function printDiv() {
 }
 </script>
 <script>
+
+document.addEventListener("keydown", function(event) {
+    // Check for keyboard shortcuts with Ctrl + Shift
+    if (event.altKey) {
+        switch (event.key.toLowerCase()) {
+            case "f":
+                event.preventDefault(); // Prevent the default browser Bookmark behavior
+                toggleBold();
+                break;
+            
+            case "k":
+                event.preventDefault(); // Prevent the default browser Find behavior
+                toggleItalics();
+                break;
+            
+            case "u":
+                event.preventDefault(); // Prevent the default browser Reload behavior
+                toggleUnderline();
+                break;
+            
+            case "h":
+                event.preventDefault(); // Prevent the default browser Redo behavior
+                setHighlightColor("yellow");
+                break;
+                
+            case "n":
+                event.preventDefault(); // Prevent the default browser Refresh behavior
+                clearFormatting();
+                break;
+        }
+    }
+});
+
+
 var 
     blue = document.getElementById("blue"),
     green = document.getElementById("green"),
@@ -340,6 +378,22 @@ function setColor(color) {
 function setHighlightColor(color) {
     document.execCommand('styleWithCSS', false, true);
     document.execCommand('hiliteColor', false, color);
+}
+
+function toggleBold() {
+    document.execCommand('bold', false, null);
+}
+
+function toggleItalics() {
+    document.execCommand('italic', false, null);
+}
+
+function toggleUnderline() {
+    document.execCommand('underline', false, null);
+}
+
+function clearFormatting() {
+    document.execCommand('removeFormat', false, null);
 }
 </script>
 <script>
