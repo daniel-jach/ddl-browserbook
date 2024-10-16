@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -31,7 +51,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./definitions.html" rel="next">
+<link href="./abstracts.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -47,7 +67,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "Keine Treffer",
     "search-matching-documents-text": "Treffer",
@@ -56,11 +82,26 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "weitere Treffer in diesem Dokument",
     "search-more-matches-text": "weitere Treffer in diesem Dokument",
     "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Abbrechen",
     "search-submit-button-title": "Abschicken",
     "search-label": "Suchen"
   }
 }</script>
+<link href="site_libs/htmltools-fill/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding/datatables.js"></script>
+<script src="site_libs/jquery/jquery-3.6.0.min.js"></script>
+<link href="site_libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/nouislider/jquery.nouislider.min.css" rel="stylesheet">
+<script src="site_libs/nouislider/jquery.nouislider.min.js"></script>
+<link href="site_libs/selectize/selectize.bootstrap3.css" rel="stylesheet">
+<script src="site_libs/selectize/selectize.min.js"></script>
+<link href="site_libs/crosstalk/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk/js/crosstalk.min.js"></script>
 
 
 </head>
@@ -71,13 +112,13 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Vorwort</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Vorwort</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -86,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Wissenschaftliche Textsorten meistern</a> 
@@ -107,14 +148,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./definitions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Definitionen</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./abstracts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Abstracts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Abstracts</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -132,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -207,13 +242,23 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="vorwort" class="level1 unnumbered">
 <h1 class="unnumbered">Vorwort</h1>
 <p>Herzlich willkommen in meinem Browserbuch zum wissenschaftlichen Schreiben. Dieses Buch richtet sich an Studierende der Germanistik und verwandter Fächer, insbesondere an diejenigen, die Deutsch als Fremdsprache verwenden und noch keine oder nur wenig Erfahrung mit dem wissenschaftlichen Schreiben auf Deutsch haben.</p>
-<p>Hier lernen und üben Sie das wissenschaftliche Schreiben auf Deutsch anhand typischer akademischer Textsorten aus Ihrem Studium, z.B. der Buchbesprechung, des Abstracts oder des Lexikoneintrags. Jede Einheit behandelt eine dieser Textsorten, immer in drei Schritten: Beispiele lesen, selbst einen Text schreiben und den eigenen Text überarbeiten. Im Unterschied zu anderen Lehrwerken arbeiten Sie in diesem Lehrwerk mit so genannten Korpora. Korpora sind Sammlungen von Texten einer bestimmten Art, in diesem Fall von Texten bestimmter Textsorten. Mit dem Lehrwerk können Sie in solchen Korpora nach guten, idiomatischen Formulierungen suchen, während Sie Ihren Text überarbeiten.</p>
-<p>Das Lehrbuch ist ein Browserbuch, d.h. es wird online in einem Internetbrowser gelesen. Als Browser eignen sich z.B. <a href="https://www.google.de/chrome//">Google Chrome</a> oder <a href="https://www.mozilla.org/de/firefox/new/">Firefox</a>. Das Browserbuch ist interaktiv: Sie können eigene Texte eingeben, gestalten und speichern. Arbeiten Sie an einem Computer mit Bildschirm, Maus und Tastatur. Aus praktischen Gründen ist es nicht empfehlenswert, mit einem Mobiltelefon oder einem Tablet zu arbeiten. Probieren Sie das hier einmal aus. Geben Sie einen beliebigen Text ein und gestalten Sie Form und Farbe mit Hilfe der entsprechenden Schaltflächen nach Ihren Wünschen.</p>
+<p>Hier lernen und üben Sie das wissenschaftliche Schreiben auf Deutsch anhand typischer akademischer Textsorten aus Ihrem Studium, z.B. der Buchbesprechung, des Abstracts oder des Lexikoneintrags. Jede Einheit behandelt eine dieser Textsorten, immer in drei Schritten: Beispiele lesen, selbst einen Text schreiben und den eigenen Text überarbeiten. Im Unterschied zu anderen Lehrwerken arbeiten Sie in diesem Lehrwerk mit sogenannten Korpora. Korpora sind Sammlungen von authentischen Texten einer bestimmten Textsorte, in diesem Fall von Texten bestimmter wissenschaftlicher Textsorten. Das Lehrwerk ermöglicht es Ihnen, in Auszügen aus solchen Korpora nach geeigneten Formulierungen zu suchen, während Sie Ihren Text überarbeiten. Das Lehrbuch verfügt über eigene Korpora. Zum Ausprobieren sind hier Belege für das Wort <em>wissenschaftlich</em> aus dem <em>Korpus einfaches Deutsch</em> <span class="citation" data-cites="jach2024">(<a href="references.html#ref-jach2024" role="doc-biblioref">Jach und Dietz 2024</a>)</span> abgedruckt. Sie können die Tabelle beliebig sortieren, filtern und bearbeiten.</p>
+<div id="intro-examples-kwics" class="kwics user-content" contenteditable="true">
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-995c737be165b0e10faf" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-995c737be165b0e10faf">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99"],[" entdeckt haben . Dafür gibt es aber keine "," er seine Forschungen intensiv weiterführt und zahlreiche "," See oder an Land leben . Die erste "," vorwärts und rückwärts gespielt gleich anhören . Manche "," die Märchen stammten . Sie untersuchten die Märchen "," verschiedene Geschmacksrichtungen zuständig sein sollten , wurde inzwischen "," publizierte er die Entdeckung des ungewöhnlichen Stoffes - "," weniger streng waren , konnte sie eine eigenständige "," sie in einigen Ländern verboten . Die meisten "," wie bei allen Säugetieren . Der Mensch ist "," . Damit man das nicht verwechselt , ist der "," Wirkung dieser Lebensmittel . Es wurden bisher kaum "," Universität oder in einem Verein . Sie arbeiten \" "," Bei der Anfertigung einer Doktorarbeit müssen strenge "," ? Solche Fragen sind immer wieder Gegenstand von "," ständig Menschen im All sind und dort "," Geld zum Wohl der Allgemeinheit für kulturelle , "," Ausgang ... Die Wirkung von Psilocybin wurde auch "," . Darüber schreibt man dann zum Beispiel ein "," wird mit Hilfe von Satelliten und anderen "," für medizinische Zwecke wird Thermochromie eingesetzt . In "," sehr viele Zellen . Auch der Mensch ist "," , das Wetter sei zu unberechenbar , um es "," unter anderem zu zwei Dingen geführt : zur "," gedacht und spielte in Südafrika . Sein erster "," leben . Hier sammelt sich auch der \" Gletscherschlamm \" ( "," wieder von Hungersnöten heimgesucht . Seither hat der "," zu ihrem Fach gehört : die Fachliteratur . Ein "," Geschäftsleuten und veröffentlicht Berichte zu wirtschaftlichen und "," nicht wollen . Sie haben wohltätige , gesellige , religiöse , "," des Heilfastens bis heute beibehalten , die jedoch "," ist sowohl eine kreative als auch eine ","Doktorarbeit Wissenschaftliche Arbeit Eine Doktorarbeit ist eine "," braucht darum Kommunikation , also eine Übersetzung der "," der einzige Baum , dessen überlieferte Heilkräfte sich "," und kümmert sich um die Förderung der "," Kunst der Parfumherstellung dank grosser Entdecker und "," 1859. Er hinterliess der Nachwelt die Grundlagen der "," oder mal gab . Dafür hat \" Zhurong \" viele "," - der Seenforschung - ein Begriff , da er diese "," Fachlexikon hingegen beschreibt ein einziges Wissensgebiet oder "," ) eine internationale Kooperation starten . Update : Gemäss einer "," mehreren Monaten bietet den Astronauten die Möglichkeit , "," dann ein Laborant , ein Doktorand oder ein "," weiter und konnte mit der Zeit die "," Arten , die Natur einzuteilen , je nach der "," ihren Lehrzielen und Einrichtungen sowie in der "," vom schnellen zum langsamen Fließen statt . Der "," gab es in der Schweiz aber erst "," noch niemand geschafft , Irrlichter in der Natur "," \" bei Gesetzestexten . Auch bei Verträgen und in "," Renaissance-Zeit war sie darum ein kulturelles und "," \" ( Wasserbären ) oder \" moss piglets \" ( Moos-Schweinchen ) genannt . Ihr "," . Eine andere Technik dazu entwickelten die Aufsitzerpflanzen ( "," Politikerinnen und Politiker . Sie rief dazu auf , "," viele gegen das \" Gentech-Brötchen \" entscheiden , obwohl das "," wird , funktioniert nicht : Die Wirkung konnte nie "," französische Physiker hat inzwischen zahlreiche Bücher und "," auf die Entwicklung von Kindern wirken , ist "," Länder und sprechen über politische , wirtschaftliche und "," ein britischer Astrophysiker . Er beschäftigte sich also "," . Sie dachten sich etwas aus , das sie \" "," erwerben kann . Dafür muss man eine besondere "," - aber auch kritisch anschauen , ob ein Effekt "," 2001 den Ig-Nobelpreis bekommen . Dieser Preis zeichnet "," . Bis jetzt war der Walfang nur für "," sind solche dummen Behauptungen sogar als angebliche "," nach klugen Grundregeln spielen . Schach sollte also "," davon aus , dass es für alles eine "," Leben . Sein Tod am Kreuz lässt sich "," , m für Meter , kg für Kilogramm . In "," die Existenz von Transposons endlich in breiten "," letzten 750'000 Jahren . Um den Stand der "," \" . Links , rechts und Mitte sind jedoch keine "," . Wie erzeugt die Sonde elektrischen Strom ? Um "," haben . Man soll aber auch offen für "," in der Natur äusserst weit verbreitet : Die "," ursprünglich aus Armenien . Deshalb trägt sie den "," leuchten sieht , sind die Weibchen eines Käfers , "," schützen , ist nicht neu - doch mit dem "," . Es gibt uns darüber hinaus noch knifflige "," nutzen die Wissenschaftler die Jahrringe ? Die einfachste "," Verwendung von Kunststoffen nicht vorstellbar und viele "," Gehirn des Menschen . Was das genau und "," und mehr auf Englisch unterhält . Die meisten "," und Universitäten eine Menge lernen , um wiederum "," . Aber hast du deine Annahme schon einmal "," jagen , weil sie behaupten es wäre für "," aufgenommen werden , wird seit längerem diskutiert , die "," den folgenden Jahren zog sie sich aus "," aber sehr darauf an , wie man das "," nur in kleinen Mengen , und es fehlen "," den Film \" Findet Nemo \" wurden die Clownfische ( "," , ob der Weihnachtsmann und sein Schlitten einer "," Leben gerufen . Er sammelt die Ergebnisse von "," für Mathematik und Physik . Auch baute er "," Werkes . Dazu gehören auch Zeitungsartikel , Rundfunk- und Fernsehbeiträge , "," ist . Ständig werden alle Meldungen , Informationen und "," tatsächlich vorhanden ist , spricht man von einer "],["wissenschaftlichen","wissenschaftliche","wissenschaftliche","wissenschaftliche","wissenschaftlich","wissenschaftlich","wissenschaftlich","wissenschaftliche","wissenschaftlichen","wissenschaftlich","wissenschaftliche","wissenschaftliche","wissenschaftlich","wissenschaftliche","wissenschaftlichen","wissenschaftliche","wissenschaftliche","wissenschaftlich","wissenschaftliches","wissenschaftlichen","wissenschaftlichen","wissenschaftlich","wissenschaftlich","wissenschaftlichen","wissenschaftlicher","wissenschaftlich","wissenschaftliche","wissenschaftliches","wissenschaftlichen","wissenschaftliche","wissenschaftlich","wissenschaftliche","wissenschaftliche","wissenschaftlichen","wissenschaftlich","wissenschaftlichen","wissenschaftlicher","wissenschaftlichen","wissenschaftliche","wissenschaftliche","wissenschaftliches","wissenschaftlichen","wissenschaftliche","wissenschaftlicher","wissenschaftliche","wissenschaftlichen","wissenschaftlichen","wissenschaftliche","wissenschaftliche","wissenschaftlich","wissenschaftlichen","wissenschaftliches","wissenschaftlicher","wissenschaftlich","wissenschaftliche","wissenschaftlich","wissenschaftlich","wissenschaftliche","wissenschaftlich","wissenschaftliche","wissenschaftlich","wissenschaftlichen","wissenschaftliche","wissenschaftlich","wissenschaftliche","wissenschaftliche","wissenschaftliche","wissenschaftlicher","wissenschaftliche","wissenschaftlich","wissenschaftlichen","wissenschaftlichen","wissenschaftlichen","wissenschaftlichen","wissenschaftliche","wissenschaftliche","wissenschaftliche","wissenschaftlichen","wissenschaftlich","wissenschaftlichen","wissenschaftliche","wissenschaftliche","wissenschaftliche","wissenschaftlich","wissenschaftlichen","wissenschaftliche","wissenschaftlich","wissenschaftliche","wissenschaftlichen","wissenschaftlichen","wissenschaftlich","wissenschaftliche","wissenschaftlicher","wissenschaftlichen","wissenschaftlichen","wissenschaftliche","wissenschaftliche","wissenschaftlichen","wissenschaftlichen"],[" Beweise . Wie endeten die Kolonien der Phönizier "," Publikationen verfasst . Die Lage eines Preussen in "," Einteilung stammt von Carl von Linné . Er lebte "," Tiernamen sind Palindrome : Afgoiogfa ist eine Plattwespe "," . Zunächst arbeiteten sie als Bibliothekare und später "," widerlegt ."," \" Benzoesäuresulfimid \" - und machte sich in den folgenden "," Karriere beginnen . Pionierin in bildgebenden Verfahren Im "," Studien gehen bisher davon aus , dass E-Zigaretten "," gesehen auch ein Säugetier . Bei den Menschen "," Name dafür \" Theobroma cacao \" . Die Früchte des "," Studien dazu durchgeführt . Die versprochenen Wirkungen für "," \" , wenn sie sehr gründlich arbeiten . Das ist "," Regeln beachtet werden . Ganz wichtig ist , dass "," Studien und öffentlichen Debatten . Allgemein gilt , dass "," Experimente machen . Russische Raumfahrer nennt man Kosmonauten "," , religiöse und andere Zwecke ein . Gesetze regeln "," untersucht : 60 Prozent der Testpersonen gaben an "," Buch . Mit der Vergangenheit sind auch die "," Methoden erstellt . Es kann eine wirtschaftliche Prognose "," Studien wurde bereits erfolgreich gezeigt , dass Stimmungsringe "," gesehen ein Tier . Im Allgemeinen meint man "," zu berechnen ."," Erforschung der Effekte eines Tattoos auf die "," Artikel \" Wilder Jasmin als Gift \" erschien im "," nennt man ihn \" Kryokonit \" ) . Das ist ein "," Fortschritt den Weg zu einem wirksamen Pflanzenschutz "," Buch über Chemie ist für eine Chemikerin "," Themen ."," oder gesellschaftspolitische Zwecke . Solche Vereine können beim "," einen schweren Stand hat . Verschiedene Statistiken aus "," Aufgabe - die Aufgabe des Aromatiseurs . Aromatiseure spielen "," Arbeit . Wer eine solche Arbeit geschrieben hat "," Erkenntnisse in eine Sprache , die alle verstehen "," auf bestimmte Wirkstoffe zurückführen lassen . Aus dem "," Forschung . Damit sich der Bund und die "," Erfindungen einen enormen Fortschritt . Während neue Rohstoffe "," Erforschung und einen tiefgreifenden Einfluss auf die "," Instrumente mitgenommen und wird auch Bilder machen "," Disziplin begründete . 1855 , im Alter von 14 "," Fach . Das Wort Lexikon kommt aus dem "," Publikation vom 28. Juli 2020 ist SARS-CoV-2 bereits "," Forschungen über das Leben im All durchzuführen "," Mitarbeiter diese Proben auf eine Einheitsgrösse zurecht "," Gemeinschaft von ihren Ideen überzeugen . Vier Jahrzehnte "," Richtung ."," Ausbildung ihrer Lehrkräfte nicht hinter den öffentlichen "," Begriff für unsere Wasserstufe ist Wechselsprung ( auch "," Abklärungen über das Vorkommen von grösseren Schiefergaslagern "," zu untersuchen ... Feuerzeichen vom Himmel Auf andere "," Arbeiten wird der Begriff häufig gebraucht . Entstanden "," Zentrum in Europa . Später sprach man vom "," Name lautet Tardigrada und bedeutet soviel wie "," \" Epiphyten \" ) , die nicht auf dem Boden wachsen "," Einschätzungen ernster zu nehmen und zu befolgen "," kaum zu begründen ist . Biotechnologische Methoden stehen "," nachgewiesen werden . Schaden richten solche Nahrungszusätze jedoch "," Artikel zur molekularen Küche geschrieben . Unter anderem "," umstritten . Es ist weder belegt , dass die "," Themen . Es gibt immer ein Land , welches "," mit Astronomie sowie mit Physik . Berühmt war "," Sozialismus \" nannten . Damit wollten sie sagen : Unsere "," Arbeit schreiben und eine Prüfung ablegen . \" Doktor "," nachgewiesen ist und sie daher empfohlen werden "," Leistungen aus , die \" Menschen zuerst zum Lachen "," Zwecke erlaubt . Japans Bitte wurde jedoch abgelehnt "," Lehre verkündet worden . Während der Zeit des "," werden . Seit dem Jahr 1970 gilt die "," Erklärung gibt . Andere Menschen haben eine Weltanschauung "," belegen . Seine Auferstehung ist jedoch ein Wunder "," Fächern gibt es Abkürzungen , die nur Fachleute "," Kreisen anerkannt wurde , wurde ein positiver Einfluss "," Forschung zum Klimawandel regelmässig zusammenzufassen und zu "," Begriffe . In der Alltagssprache werden sie allerdings "," Instrumente zu betreiben und die gewonnenen Daten "," Fragen sein . Die Schule beginnt mit der "," Literatur verzeichnet über eine Million unterschiedliche kohlenstoffhaltige "," Namen \" Prunus armeniaca \" , zu Deutsch : die armenische "," Lampyris noctiluca genannt . Noch ist diese Käferart "," und technischen Fortschritt änderten sich Materialien und "," Rätsel auf ."," Aufgabe kann schon jedes Kind übernehmen : An "," Meilensteine sind ihnen zu verdanken . Das erste "," bedeuten soll , weiß man nicht . Darum sprechen Psychologen "," Schriften erscheinen in dieser Sprache . So sind "," und technische Neuerungen hervorzubringen . Wir leben in "," zu belegen versucht ? Um zu zeigen , ob "," Zwecke . In Wirklichkeit landet das Walfleisch aber "," Ergebnisse dazu sind jedoch zurzeit noch widersprüchlich "," Interaktionen zurück und publizierte kaum mehr . Jedoch "," betrachtet . Klar ist jedoch : Alle diese Tiere "," Studien , die eine gesundheitsfördernde Wirkung eindeutig belegen "," Name : Anemonenfisch ) berühmt . Jedes Jahr werden über "," Überprüfung standhalten , müssen wir allerdings ein paar "," Untersuchungen und erstellt regelmässig Berichte über den "," Instrumente , unter anderem auch Teleskope . Teleskope gab "," Werke und anderes mehr . Dieses \" geistige Eigentum "," Berichte gesammelt und die Karten aktualisiert . Ziele "," Theorie , manchmal auch von einem Modell . Eine "]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Linker Kontext<\/th>\n      <th>Zielwort<\/th>\n      <th>Rechter Kontext<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"language":{"url":"//cdn.datatables.net/plug-ins/1.10.11/i18n/German.json"},"searchHighlight":false,"dom":"tp","columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Linker Kontext","targets":1},{"name":"Suchausdruck","targets":2},{"name":"Rechter Kontext","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<p>Das Lehrbuch ist ein Browserbuch, d.h. es wird online in einem Internetbrowser gelesen. Als Browser eignen sich z.B. <a href="https://www.google.de/chrome//">Google Chrome</a> oder <a href="https://www.mozilla.org/de/firefox/new/">Firefox</a>. Das Browserbuch ist interaktiv: Sie können eigene Texte eingeben, gestalten und speichern. Arbeiten Sie an einem Computer mit Bildschirm, Maus und Tastatur. Aus praktischen Gründen ist es nicht empfehlenswert, mit einem Mobiltelefon oder einem Tablet zu arbeiten. Probieren Sie das hier einmal aus. Geben Sie einen beliebigen Text ein und gestalten Sie Form und Farbe mit Hilfe der entsprechenden Schaltflächen nach Ihren Wünschen. Sie können auch die Beispiele aus den Korpora auf diese Weise bearbeiten.</p>
 <div class="print">
 <div class="forPrintOnly">
 <p><strong>Ihre Eingabe</strong></p>
@@ -223,14 +268,18 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>Sie können Ihre Eingabe speichern, indem Sie auf <em>Eingabe speichern</em> klicken. Die Daten werden auf Ihrem Computer im Cache Ihres Browsers gespeichert. Mit <em>Eingabe drucken</em> können Sie eine PDF-Datei der aktuellen Seite mit Ihren Eingaben erstellen. Die Schaltfläche <em>Wiederherstellen</em> löscht alle Ihre Eingaben vollständig aus Ihrem Cache und setzt das gesamte Browserbuch in den Ausgangszustand zurück.</p>
-<p>Das Buch ist noch nicht vollständig und wird noch erweitert und verändert. Im Moment sind nur die Kapitel über das Schreiben von wissenschaftlichen Definitionen und von Abstracts verfügbar.</p>
+<p>Das Buch ist noch nicht vollständig und wird noch erweitert und verändert. Im Moment ist nur das Kapitel über das Schreiben von wissenschaftlichen Abstracts verfügbar.</p>
 <p>Viel Erfolg.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-jach2024" class="csl-entry" role="listitem">
+Jach, Daniel, und Gunther Dietz. 2024. <span>„Korpus einfaches Deutsch“</span>. <em>Korpora Deutsch als Fremdsprache</em> 4 (1): 123–30. https://doi.org/<a href="https://doi.org/10.48694/kordaf.3996">https://doi.org/10.48694/kordaf.3996</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
-
 <script>
 window.onload = () =>
 document.querySelectorAll('[contenteditable="true"]').forEach((element) => {
@@ -489,18 +538,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -532,11 +570,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -546,8 +623,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -559,7 +645,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -603,6 +812,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -628,6 +838,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -691,15 +927,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./definitions.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Definitionen</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./abstracts.html" class="pagination-link" aria-label="Abstracts">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Abstracts</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">© 2023 <a href="https://daniel-jach.github.io/">Daniel Jach</a> | <a href="https://www.quantumjitter.com/license">MIT License</a></div>   
+    <div class="nav-footer-left">
+<p>© 2024 <a href="https://daniel-jach.github.io/">Daniel Jach</a> | <a href="https://www.quantumjitter.com/license">MIT License</a></p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
@@ -708,6 +946,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 
